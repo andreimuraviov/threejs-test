@@ -2,8 +2,8 @@ import './style.css'
 
 import * as THREE from 'three';
 
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 
 
 // Scene
@@ -28,7 +28,7 @@ renderer.setSize( window.innerWidth, window.innerHeight);
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFShadowMap;
 
-window.addEventListener('resize', onWindowResize, false)
+window.addEventListener('resize', onWindowResize, false);
 
 function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight
@@ -70,7 +70,7 @@ fbxLoader.load(
             }
           });
   
-        object.scale.set(0.5, 0.5, 0.5)
+        object.scale.set(0.5, 0.5, 0.5);
 
         mixer = new THREE.AnimationMixer(object);
 
@@ -78,7 +78,7 @@ fbxLoader.load(
 
         objectAnimations.forEach((action,index) => {
           animationActions[index] = mixer.clipAction(action);
-        })
+        });
 
         modelReady = true;
 
@@ -106,26 +106,26 @@ startActionButtons.forEach((button, index) =>
 
 
 // Controls
-const controls = new OrbitControls(camera, renderer.domElement)
-controls.enableDamping = true
-controls.target.set(0, 1, 0)
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.target.set(0, 1, 0);
 
 
-const clock = new THREE.Clock()
+const clock = new THREE.Clock();
 
 function render() {
   renderer.render(scene, camera)
 }
 
 function animate() {
-  requestAnimationFrame(animate)
+  requestAnimationFrame(animate);
 
-  controls.update()
+  controls.update();
 
-  if (modelReady) mixer.update(clock.getDelta())
+  if (modelReady) mixer.update(clock.getDelta());
 
-  render()
+  render();
 }
 
-animate()
+animate();
 
