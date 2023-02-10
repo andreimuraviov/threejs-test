@@ -39,7 +39,7 @@ function onWindowResize() {
 
 // Plane
 const planeGeometry = new THREE.PlaneGeometry( 1000, 1000, 32, 32 );
-const grassTexture = new THREE.TextureLoader().load('textures/grass.jpg');
+const grassTexture = new THREE.TextureLoader().load('./textures/grass.jpg');
 const planeMaterial = new THREE.MeshStandardMaterial( { color: 0x71946c, map: grassTexture } )
 const plane = new THREE.Mesh( planeGeometry, planeMaterial );
 plane.receiveShadow = true;
@@ -61,7 +61,7 @@ const fbxLoader = new FBXLoader()
 let modelReady = false;
 
 fbxLoader.load(
-    'model/deer.fbx',
+    './model/deer.fbx',
     (object) => {
 
         object.traverse( child => {
